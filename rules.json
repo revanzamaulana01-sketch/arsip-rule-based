@@ -1,0 +1,44 @@
+{
+  "rules": [
+    {
+      "nama": "Surat Masuk - Perizinan",
+      "keywords": ["permohonan", "izin", "permohonan izin"],
+      "hasil": "Surat Masuk - Kategori Perizinan"
+    },
+    {
+      "nama": "Surat Masuk - Undangan",
+      "keywords": ["undangan", "menghadiri", "acara"],
+      "hasil": "Surat Masuk - Kategori Undangan"
+    },
+    {
+      "nama": "Surat Masuk - Pemberitahuan",
+      "keywords": ["pemberitahuan", "informasi", "info"],
+      "hasil": "Surat Masuk - Kategori Pemberitahuan"
+    },
+    {
+      "nama": "Surat Masuk - Pengumuman",
+      "keywords": ["pengumuman", "umum", "berlaku"],
+      "hasil": "Surat Masuk - Kategori Pengumuman"
+    },
+    {
+      "nama": "Surat Keluar - Balasan",
+      "keywords": ["balasan", "membalas", "terima kasih"],
+      "hasil": "Surat Keluar - Kategori Balasan"
+    },
+    {
+      "nama": "Surat Keluar - Perintah",
+      "keywords": ["perintah", "tugas", "melaksanakan"],
+      "hasil": "Surat Keluar - Kategori Perintah/Tugas"
+    },
+    {
+      "nama": "Surat Keluar - Laporan",
+      "keywords": ["laporan", "lapor", "rekap"],
+      "hasil": "Surat Keluar - Kategori Laporan"
+    },
+    {
+      "nama": "Surat Tidak Diklasifikasi",
+      "keywords": [],
+      "hasil": "Surat Tidak Diklasifikasi"
+    }
+  ]
+}

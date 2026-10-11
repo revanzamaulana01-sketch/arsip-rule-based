@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sistem Pengelolaan Arsip - Rule Based</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="container">
+<div class="header"><h1>🏛️ Sistem Pengelolaan Arsip</h1><p>Rule-Based Classification - Forward Chaining</p></div>
+<div class="card"><h3>📝 Klasifikasi Surat</h3><label>Isi / Ringkasan Surat</label><textarea id="isiSurat" placeholder="Ketik isi surat... cth: surat permohonan izin"></textarea><button class="btn" onclick="klasifikasikan()">Klasifikasi Surat</button><div id="hasil"></div></div>
+<div class="card"><h3>📋 Daftar Surat Terklasifikasi</h3><div id="daftarSurat"></div></div>
+<div class="card"><h3>⚙️ Rule Base (IF-THEN)</h3><div id="ruleList"></div></div>
+</div>
+<script>
+const API='http://localhost:5000';
+async function klasifikasikan(){
+const isi=document.getElementById('isiSurat').value.trim();
+const hasil=document.getElementById('hasil');
+if(!isi){hasil.innerHTML='<div class="empty">Masukkan isi surat dulu!</div>';return}
+const r=await fetch(API+'/api/surat',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({isi_surat:isi})});
+const d=await r.json();
+if(d.status==='success'){
+const s=d.data;
+let html='<div class="result"><b>Hasil Klasifikasi:</b> '+s.klasifikasi+'<br><span>Aturan terpicu: '+s.aturan_terpicu.length+'</span>';
+s.aturan_terpicu.forEach(a=>{html+=' <span class="tag">'+a+'</span>'});
+html+='</div>';
+hasil.innerHTML=html;
+loadDaftar();
+}
+}
+async function loadDaftar(){
+const r=await fetch(API+'/api/surat');
+const d=await r.json();
+const el=document.getElementById('daftarSurat');
+if(!d.data.length){el.innerHTML='<div class="empty">Belum ada surat</div>';return}
+el.innerHTML=d.data.map(s=>'<div class="list-item"><span class="klas">'+s.klasifikasi+'</span><button class="btn-danger" onclick="hapus('+s.id+')">Hapus</button><p>'+s.isi_surat+'</p></div>').join('');
+}
+async function hapus(id){
+await fetch(API+'/api/surat/'+id,{method:'DELETE'});
+loadDaftar();
+}
+async function loadRules(){
+const r=await fetch(API+'/api/rules');
+const d=await r.json();
+document.getElementById('ruleList').innerHTML=d.data.map(r=>'<div class="list-item"><span class="klas">IF</span> '+r.keywords.join(', ')+' <span class="klas">THEN</span> '+r.hasil+'</div>').join('');
+}
+loadDaftar();loadRules();
+</script>
+</body></html>

@@ -1,0 +1,15 @@
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Segoe UI',Tahoma,sans-serif;background:linear-gradient(135deg,#0f2027,#203a43,#2c5364);min-height:100vh;color:#fff}
+.container{max-width:480px;margin:auto;padding:16px}
+.header{text-align:center;padding:16px 0;border-bottom:1px solid rgba(255,255,255,.1);margin-bottom:16px}.header h1{font-size:18px;color:#4dd0e1}.header p{font-size:12px;color:#90a4ae;margin-top:4px}
+.card{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:14px;padding:18px;margin-bottom:14px}
+.card h3{font-size:14px;color:#4dd0e1;margin-bottom:10px}
+label{display:block;font-size:11px;color:#b0bec5;margin-bottom:4px;font-weight:500}
+input,textarea,select{width:100%;padding:10px 12px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);border-radius:8px;color:#fff;font-size:13px;outline:none;margin-bottom:10px}
+textarea{min-height:90px;resize:vertical}
+input:focus,textarea:focus{border-color:#4dd0e1}
+.btn{width:100%;padding:11px;border:0;border-radius:8px;background:linear-gradient(135deg,#4dd0e1,#26c6da);color:#0f2027;font-size:14px;font-weight:600;cursor:pointer;margin-top:6px}.btn:active{transform:scale(.98)}
+.btn-danger{background:linear-gradient(135deg,#ef5350,#e53935);color:#fff;padding:6px 12px;font-size:11px;width:auto;margin:0}
+.result{background:rgba(77,208,225,.12);border:1px solid rgba(77,208,225,.3);border-radius:10px;padding:14px;font-size:13px;margin-top:10px}.result b{color:#4dd0e1}.tag{display:inline-block;background:rgba(77,208,225,.2);color:#4dd0e1;border-radius:5px;padding:2px 8px;font-size:10px;margin:2px}
+.list-item{background:rgba(255,255,255,.05);border-left:3px solid #4dd0e1;border-radius:8px;padding:10px 12px;margin-bottom:8px;font-size:12px}.list-item .klas{color:#4dd0e1;font-weight:600;font-size:11px}.list-item p{color:#cfd8dc;margin-top:4px;font-size:11px}.list-item button{float:right}
+.empty{text-align:center;color:#78909c;padding:14px;font-size:12px}.proses{margin-top:10px;font-size:11px;color:#90a4ae}.proses li{padding:2px 0}
